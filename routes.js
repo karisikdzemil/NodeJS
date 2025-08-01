@@ -30,7 +30,6 @@ if (url === "/") {
             res.setHeader("Location", "/");
             return res.end();
         });
-        
     }); 
   }
 
