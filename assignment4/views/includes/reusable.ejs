@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=pageTitle%></title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a class="<%= activePage === 'home' ? 'active' : '' %>" href="/">Home</a></li>
+            <li><a class="<%= activePage === 'users' ? 'active' : '' %>" href="/users">Users</a></li>
+        </ul>
+    </header>

@@ -3,8 +3,8 @@ const express = require("express");
 
 const router = express.Router();
 
-router.use("/", (req, res, next) => {
-    res.sendFile(path.join(__dirname, "..", "views", "home.html"));
+router.get("/", (req, res, next) => {
+    res.render("home", { activePage: "home", pageTitle: "Home Page"});
 });
 
 module.exports = router;

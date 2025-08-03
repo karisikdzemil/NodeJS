@@ -63,3 +63,38 @@ form button {
     font-weight: 900;
     cursor: pointer;
 }
+.user-carts{
+    width: 100%;
+    min-height: 25vh;
+    /* background-color: antiquewhite; */
+    padding: 2rem;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+h2{
+    text-align: center;
+    margin: 15px;
+}
+
+.cart{
+    width: 200px;
+    height: 250px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.cart h4{
+    color: brown;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.user-image{
+    width: 100%;
+}
