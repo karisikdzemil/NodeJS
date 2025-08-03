@@ -1,13 +1,20 @@
+<%- include('includes/head.ejs') %>
+
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+   <%- include('includes/navigation.ejs') %>
     <main>
-            {{#if hasProducts}}
-             <div class="grid">
-                {{#each prods}}
+        <% if(prods.length > 0){ %>
+         <div class="grid">
+            <%for(let product of prods){%>
             <article class="card product-item">
                 <header class="card__header">
-                    <h1 class="product__title">{{this.title}}</h1>
+                    <h1 class="product__title"><%= product.title %></h1>
                 </header>
                 <div class="card__image">
-                    <img src="https://www.cevagraf.coop/printing/wp-content/uploads/2023/05/Parts-of-a-Book.jpg" alt="A Book">
+                    <img src="https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png" alt="A Book">
                 </div>
                 <div class="card__content">
                     <h2 class="product__price">$19.99</h2>
@@ -17,9 +24,11 @@
                     <button class="btn">Add to Cart</button>
                 </div>
             </article>
-            {{/each}}
+            <% } %>
         </div>
-        {{else}}
-            <h1>No Products Found!</h1>
-        {{/if}}
+        <%} else{%>
+
+            <h1>No Products</h1>
+            <%}%>
     </main>
+<%- include('includes/end.ejs') %>
