@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 7vh;
+  background-color: rgb(7, 121, 85);
+}
+header ul {
+  display: flex;
+  list-style: none;
+  height: 7vh;
+  align-items: center;
+  justify-content: start;
+  padding-left: 100px;
+  gap: 50px;
+}
+header ul li {
+  font-weight: 400;
+}
+
+header ul li a {
+  text-decoration: none;
+  color: white;
+}
+header ul li a:hover {
+  color: rgb(246, 246, 50);
+}
+
+main {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  /* background-color: aqua; */
+  margin-top: 50px;
+}
+main p {
+  width: 70%;
+  text-align: center;
+}
+
+input {
+  padding: 5px;
+  width: 250px;
+}
+form button {
+  padding: 5px;
+  width: 70px;
+  border: 0;
+  border-radius: 5px;
+  background-color: rgb(7, 121, 85);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.active{
+    color: chartreuse;
+}
+
+.user-carts{
+    width: 100%;
+    min-height: 25vh;
+    /* background-color: antiquewhite; */
+    padding: 2rem;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+h2{
+    text-align: center;
+    margin: 15px;
+}
+
+.cart{
+    width: 200px;
+    height: 250px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.cart h4{
+    color: brown;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.user-image{
+    width: 100%;
+}
