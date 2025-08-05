@@ -3,17 +3,18 @@ const path = require("path");
 
 const app = express();
 
+const bodyParser = require("body-parser");
+
+const shopRoutes = require("./routes/shop");
+const adminRoutes = require("./routes/admin");  
+
 app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use(bodyParser.urlencoded({extended: false}));
 
-app.get("/add-product", (req, res) => {
-    res.render("add-product");
-});
-
-app.get("/", (req, res) => {
-    res.render("shop");
-});
+app.use(adminRoutes.router);
+app.use(shopRoutes);
 
 app.listen(3000);
