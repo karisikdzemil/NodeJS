@@ -2,17 +2,10 @@ const express = require("express");
 
 const router = express.Router();
 
-router.get("/add-product", (req, res) => {
-  res.render("add-product", {
-    isActive: "/add-product",
-    pageTitle: "Product Page",
-  });
-});
+const adminController = require("../controllers/admin");
 
-const items = [];
-router.post("/add-product", (req, res, next) => {
-  items.push({ username: req.body.username });
-  res.redirect("/");
-});
+router.get("/add-product", adminController.getAddProduct);
 
-module.exports = { router, items };
+router.post("/add-product", adminController.postProduct);
+
+module.exports = router;
