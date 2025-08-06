@@ -1,4 +1,4 @@
-const { postItem } = require("../models/product");
+const Product = require("../models/product");
 
 exports.getAddProduct = (req, res) => {
   res.render("add-product", {
@@ -8,6 +8,8 @@ exports.getAddProduct = (req, res) => {
 }
 
 exports.postProduct = (req, res) => {
-  postItem({ username: req.body.username });
-  res.redirect("/");
+    const title = req.body.title;
+    const product = new Product(title);
+    product.save();
+    res.redirect("/");
 }

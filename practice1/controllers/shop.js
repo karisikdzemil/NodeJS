@@ -1,10 +1,11 @@
-const {getItems} = require("../models/product");
+const Product = require("../models/product");
 
 exports.getShop = (req, res) => {
-    const items = getItems();
-  res.render("shop", {
-    isActive: "/shop",
-    pageTitle: "Shop Page",
-    prods: items,
-  });
+    Product.fetchAll((items) => {
+        res.render("shop", {
+          isActive: "/shop",
+          pageTitle: "Shop Page",
+          prods: items,
+        });
+    })
 }
