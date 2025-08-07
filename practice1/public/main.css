@@ -67,7 +67,6 @@ form button {
 .user-carts{
     width: 100%;
     min-height: 25vh;
-    /* background-color: antiquewhite; */
     padding: 2rem;
     list-style: none;
     display: flex;
