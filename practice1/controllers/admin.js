@@ -12,4 +12,4 @@ exports.postProduct = (req, res) => {
     const product = new Product(title);
     product.save();
     res.redirect("/");
-}
+} 
