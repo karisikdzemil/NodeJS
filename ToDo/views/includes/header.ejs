@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <title>ToDo App</title>
+</head>
+<body>
+    <header>
+        <h1>ToDo</h1>
+        <ul>
+            <li><a href="/" class="<%= path === '/' ? 'active' : '' %>">Home</a></li>
+            <li><a href="/add-todo" class="<%= path === '/add-todo' ? 'active' : '' %>">New ToDo</a></li>
+            <li><a href="/all-todo" class="<%= path === '/all-todo' ? 'active' : '' %>">All ToDo's</a></li>
+        </ul>
+    </header>

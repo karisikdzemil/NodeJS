@@ -1,50 +1,135 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header{
-    width: 100%;
-    height: 10vh;
-    background-color: purple;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background: #f4f6f9;
+  color: #333;
 }
 
-header h1{
-    color: white;
+header {
+  background: #1e3a8a; 
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-header ul{
-    display: flex;
-    list-style: none;
-    gap: 3rem;
-    margin-right: 5rem;
+header h1 {
+  font-size: 1.8rem;
 }
 
-header ul li a{
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
+header ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
 }
 
-section{
-    width: 100%;
-    min-height: 90vh;
-    background-color: thistle;
+header ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s;
 }
 
-main{
-    width: 40%;
-    margin: auto;
-    padding-top: 5rem;
-        
+header ul li a:hover {
+  color: #a5b4fc; 
 }
 
-main p{
-    text-align: center;
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+
+main {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+main h1 {
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+}
+
+main p {
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+button {
+  padding: 0.7rem 1.5rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  background: #1e40af;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #3b82f6;
+}
+
+/* ===== Form ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  color: #1e3a8a;
+}
+
+form input,
+form textarea {
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+  resize: none;
+  outline: none;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+}
+
+form button {
+  align-self: center;
+  padding: 0.7rem 2rem;
+  background: #1e40af;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #3b82f6;
+}
+
+.active{
+  color: #3b82f6;
 }
