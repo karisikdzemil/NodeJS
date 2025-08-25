@@ -9,3 +9,9 @@ exports.allTodo = (req, res, next) => {
 exports.getHome = (req, res) => {
     res.render('home', {path: "/", title: "ToDo App"})
 };
+
+exports.postTodo = (req, res) => {
+    const data = req.body.title;
+    console.log(data);
+    res.redirect("/all-todo");
+}
