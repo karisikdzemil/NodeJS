@@ -14,7 +14,6 @@ exports.allTodo = (req, res, next) => {
     });
 }
 
-
 exports.postTodo = (req, res) => {
     const id = Math.random().toString();
     const title = req.body.title;
