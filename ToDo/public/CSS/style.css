@@ -178,3 +178,60 @@ main ul li p:last-child {
   text-align: center;
 }
 
+/* ===== Todo Details Page ===== */
+.todo-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+  min-height: 80vh;
+  background: #f4f6f9;
+}
+
+.todo-card {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  max-width: 600px;
+  width: 100%;
+  text-align: left;
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.todo-card h1 {
+  font-size: 1.8rem;
+  color: #1e3a8a;
+  margin: 0;
+}
+
+.todo-desc {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.delete-form {
+  margin: 0;
+}
+
+.delete-btn {
+  background: #ef4444; /* crvena */
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}

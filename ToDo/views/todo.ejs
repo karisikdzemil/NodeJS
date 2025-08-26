@@ -1,8 +1,15 @@
-    <%-include('./includes/header.ejs')%>
-  <section>
-    <main>
-        <h1><%=todo.title%></h1>
-    </main>
-  </section>
+<%- include('./includes/header.ejs') %>
+
+<section class="todo-section">
+  <main class="todo-card">
+    <div class="todo-header">
+      <h1><%= todo.title %></h1>
+      <form action="/delete-todo/<%= todo.id %>" method="POST" class="delete-form">
+        <button type="submit" class="delete-btn">🗑 Delete</button>
+      </form>
+    </div>
+    <p class="todo-desc"><%= todo.desc ? todo.desc : "No description provided." %></p>
+  </main>
+</section>
 </body>
 </html>
