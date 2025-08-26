@@ -1,3 +1,5 @@
+const ToDo = require('../models/createTodo');
+
 exports.getAddTodo =  (req, res, next) => {
     res.render("newTodo", {path: "/add-todo", title: "Add ToDo"})
 };
@@ -12,6 +14,7 @@ exports.getHome = (req, res) => {
 
 exports.postTodo = (req, res) => {
     const data = req.body.title;
-    console.log(data);
+    const todo = new ToDo(data.title);
+    todo.save();
     res.redirect("/all-todo");
 }
