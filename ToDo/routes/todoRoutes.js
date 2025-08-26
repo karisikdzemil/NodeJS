@@ -10,11 +10,16 @@ router.get("/add-todo", todoController.getAddTodo);
 // GET all todo's
 router.get("/all-todo", todoController.allTodo);
 
+// POST new todo
+router.post("/add-todo", todoController.postTodo);
+
+// GET todo dynamic path
+
+router.get("/todo/:id", todoController.getTodo);
+
 // GET home page
 router.get("/", todoController.getHome);
 
-// POST new todo
-router.post("/add-todo", todoController.postTodo);
 
 
 

@@ -1,4 +1,21 @@
     <%-include('./includes/header.ejs')%>
-    <h1>All ToDo's page</h1>
+    <h1 class="allTodoHeading">All ToDo's page</h1>
+    <main>
+        <ul>
+            <%if(todos.length > 0){%>
+        <%for(let todo of todos) {%>
+            <li>
+                <a href="todo/:<%=todo.id%>">
+                <input type="hidden" name="todoID" value="<%=todo.id%>">
+                <p><%=todo.title%></p>
+                <p><%=todo.desc%></p>
+                </a>
+            </li>
+            <%}%>
+            <%}else{%>
+                <h1>There are no todos yet!</h1>
+                <%}%>
+            </ul>
+    </main>
 </body>
 </html>

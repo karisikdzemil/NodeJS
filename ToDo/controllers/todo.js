@@ -10,15 +10,29 @@ exports.getAddTodo =  (req, res, next) => {
 
 exports.allTodo = (req, res, next) => {
     ToDo.readTodos((todos) => {
+        res.render("allTodos", {path: "/all-todo", title: "All ToDo's", todos: todos});
     });
-    res.render("allTodos", {path: "/all-todo", title: "All ToDo's"})
 }
 
 
 exports.postTodo = (req, res) => {
+    const id = Math.random().toString();
     const title = req.body.title;
     const desc = req.body.description
-    const todo = new ToDo(title, desc);
+    const todo = new ToDo(id, title, desc);
     todo.save();
     res.redirect("/all-todo");
+}
+
+exports.getTodo = (req, res, next) => {
+    const id = req.params.id.replace(":", "");
+    ToDo.readTodos(todos => {
+        const targetTodo = todos.find(el => el.id === id);
+        console.log(targetTodo)
+        if(targetTodo){
+            res.render("todo", {path: "/all-todo", title:"ToDo Details", todo: targetTodo});
+        }else{
+            res.redirect("/");
+        }
+    })
 }
