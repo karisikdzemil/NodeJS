@@ -47,13 +47,19 @@ exports.postEditProduct = (req, res, next) => {
   const updatedPrice = req.body.price;
   const updatedImageUrl = req.body.imageUrl;
   const updatedDesc = req.body.description;
-  const updatedProduct = new Product(
-    prodId,
-    updatedTitle,
-    updatedImageUrl,
-    updatedDesc,
-    updatedPrice
-  );
+    Product.create({
+      title: title,
+      price: price,
+      imageUrl: imageUrl,
+      description: description
+    })
+    .then((result) => {
+      // console.log(res);
+      console.log("Created Product")
+    })
+    .catch(err => {
+      console.log(err)
+    })
   updatedProduct.save();
   res.redirect('/admin/products');
 };
