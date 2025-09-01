@@ -1,4 +1,4 @@
-const ToDo = require("../models/createTodo");
+const ToDo = require('../models/todo');
 
 exports.getHome = (req, res) => {
   res.render("home", { path: "/", title: "ToDo App" });
