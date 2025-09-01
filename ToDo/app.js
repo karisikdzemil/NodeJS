@@ -14,7 +14,9 @@ const todoRoutes = require("./routes/todoRoutes");
 
 app.use(todoRoutes);
 
-sequelize.sync().then(result => {
+sequelize.sync()
+// sequelize.sync({force: true})
+.then(result => {
     app.listen(3000);
 }).catch(err => {console.log(err)})
 

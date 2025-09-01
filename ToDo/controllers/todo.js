@@ -9,18 +9,23 @@ exports.getAddTodo = (req, res, next) => {
 };
 
 exports.allTodo = (req, res, next) => {
-  ToDo.readTodos()
-    .then((result) => {
-      console.log(result);
-      res.render("allTodos", {
-        path: "/all-todo",
-        title: "All ToDo's",
-        todos: result[0],
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  ToDo.findAll().then(result => {
+    console.log(result);
+  }).catch(err => console.log(err))
+
+
+  // ToDo.readTodos()
+  //   .then((result) => {
+  //     console.log(result);
+  //     res.render("allTodos", {
+  //       path: "/all-todo",
+  //       title: "All ToDo's",
+  //       todos: result[0],
+  //     });
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
   // ToDo.readTodos((todos) => {
   //     res.render("allTodos", {path: "/all-todo", title: "All ToDo's", todos: todos});
   // });
