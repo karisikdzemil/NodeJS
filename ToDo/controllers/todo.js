@@ -1,4 +1,5 @@
-const ToDo = require('../models/todo');
+const { raw } = require("body-parser");
+const ToDo = require("../models/todo");
 
 exports.getHome = (req, res) => {
   res.render("home", { path: "/", title: "ToDo App" });
@@ -9,10 +10,16 @@ exports.getAddTodo = (req, res, next) => {
 };
 
 exports.allTodo = (req, res, next) => {
-  ToDo.findAll().then(result => {
-    console.log(result);
-  }).catch(err => console.log(err))
-
+  ToDo.findAll({raw: true})
+    .then((result) => {
+        res.render("allTodos", {
+        path: "/all-todo",
+        title: "All ToDo's",
+        todos: result[0],
+      });
+      console.log("result::",result);
+    })
+    .catch((err) => console.log(err));
 
   // ToDo.readTodos()
   //   .then((result) => {
@@ -32,18 +39,19 @@ exports.allTodo = (req, res, next) => {
 };
 
 exports.postTodo = (req, res) => {
-  const id = Math.random().toString();
+  // const id = Math.random().toString();
   const title = req.body.title;
   const desc = req.body.description;
-  const todo = new ToDo(id, title, desc);
-  todo
-    .save()
-    .then(() => {
+  // const todo = new ToDo(id, title, desc);
+
+  ToDo.create({
+    title: title,
+    description: desc,
+  })
+    .then((result) => {
       res.redirect("/all-todo");
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => console.log(err));
 };
 
 exports.getTodo = (req, res, next) => {
