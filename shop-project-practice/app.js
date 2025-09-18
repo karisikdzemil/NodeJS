@@ -1,7 +1,11 @@
-const http = require('http');
+const express = require('express');
 
-const server = http.createServer((req, res) => {
-    res.end('Hello world');
+const app = express();
+
+app.get("/", (req, res) => {
+    res.send('kako si ')
+})
+
+app.listen(3000, () => {
+    console.log("Sve radi bebiii")
 });
-
-server.listen('3000');
