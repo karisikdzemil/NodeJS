@@ -12,8 +12,7 @@ app.get('/products', (req, res) => {
 
 app.get('/create-product', (req, res) => {
     res.send('Create product page')
-})
-
+});
 
 app.listen(3000, () => {
     console.log("Sve radi bebiii")
