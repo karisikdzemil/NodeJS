@@ -6,15 +6,19 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.get("/", (req, res) => {
-    res.send('Home')
+    res.render('shop/products');
 });
 
 app.get('/products', (req, res) => {
     res.render('shop/products')
 });
 
-app.get('/create-product', (req, res) => {
-    res.send('Create product page')
+app.get('/add-product', (req, res) => {
+    res.render('shop/addProduct')
+});
+
+app.get('/admin-products', (req, res) => {
+    res.render('admin/adminProducts');
 });
 
 app.listen(3000, () => {
