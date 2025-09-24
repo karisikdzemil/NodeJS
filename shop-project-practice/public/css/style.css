@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f6fa;
+  color: #2f3640;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  background: #273c75;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .logo a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header .nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.header .nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.header .nav a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #44bd32;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background: #4cd137;
+}
+
+.btn-edit {
+  background: #487eb0;
+}
+
+.btn-delete {
+  background: #e84118;
+}
+
+.btn-edit:hover {
+  background: #40739e;
+}
+
+.btn-delete:hover {
+  background: #c23616;
+}
+
+/* Product List */
+.product-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.product-item {
+  background: white;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
