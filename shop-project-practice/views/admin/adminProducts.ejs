@@ -1,24 +1,23 @@
-<% include('../includes/layout') %>
+<%- include('../includes/header') %>
 
-<h1>Admin Products Page</h1>
-
-<section class="admin-actions">
-  <a href="/admin/add-product" class="btn">Add New Product</a>
-</section>
+<h1>Admin Products</h1>
+<p>Manage your shop's products here.</p>
 
 <section class="product-list">
-  <% if (products && products.length > 0) { %>
-    <ul>    
-      <% products.forEach(product => { %>
-        <li class="product-item">
-          <h2><%= product.title %></h2>
-          <p>Price: $<%= product.price %></p>
-          <a href="/admin/edit-product/<%= product.id %>" class="btn btn-edit">Edit</a>
-          <a href="/admin/delete-product/<%= product.id %>" class="btn btn-delete">Delete</a>
-        </li>
-      <% }) %>
-    </ul>
-  <% } else { %>
-    <p>No products found. Add some!</p>
-  <% } %>
+  <ul>
+    <li class="product-item">
+      <h2>Admin Product 1</h2>
+      <p>Price: $15</p>
+      <a href="#" class="btn btn-edit">Edit</a>
+      <a href="#" class="btn btn-delete">Delete</a>
+    </li>
+    <li class="product-item">
+      <h2>Admin Product 2</h2>
+      <p>Price: $35</p>
+      <a href="#" class="btn btn-edit">Edit</a>
+      <a href="#" class="btn btn-delete">Delete</a>
+    </li>
+  </ul>
 </section>
+
+<%- include('../includes/footer') %>

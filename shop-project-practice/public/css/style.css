@@ -90,3 +90,46 @@ body {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
+/* Form */
+.form {
+  max-width: 500px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.form-control {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #2f3640;
+}
+
+.form-control input,
+.form-control textarea {
+  padding: 10px;
+  border: 1px solid #dcdde1;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+  border-color: #273c75;
+  outline: none;
+}
+
+/* Submit button (koristi već postojeći .btn iz tvog CSS-a) */
+.form button {
+  width: 100%;
+  font-size: 16px;
+}
