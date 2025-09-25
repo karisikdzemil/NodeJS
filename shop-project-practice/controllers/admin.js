@@ -1,3 +1,4 @@
+const Product = require('../models/product');
 
 // GET admin products
 exports.getAdminProducts = (req, res, next) => {
@@ -10,7 +11,11 @@ exports.getAddProduct = (req, res, next) => {
 
 // POST product
 exports.postProduct = (req, res, next) => {
-    console.log(req.body)
+    const title = req.body.title;
+    const description = req.body.description;
+    const price = req.body.price;
+    const product = new Product(title, price, description);
+    product.createProduct(1)
   res.redirect('/');
 }
 
