@@ -5,7 +5,10 @@ const adminController = require('../controllers/admin');
 // GET products
 router.get("/admin-products", adminController.getAdminProducts);
 
+// get product
+router.get("/add-product", adminController.getAddProduct);
+
 // POST product
-router.get("/add-product", adminController.postProduct);
+router.post("/add-product", adminController.postProduct);
 
 module.exports = router; 
