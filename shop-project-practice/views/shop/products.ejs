@@ -4,18 +4,12 @@
 
 <section class="product-list">
   <ul>
-    <li class="product-item">
-      <h2>Product A</h2>
-      <p>Price: $10</p>
-    </li>
-    <li class="product-item">
-      <h2>Product B</h2>
-      <p>Price: $25</p>
-    </li>
-    <li class="product-item">
-      <h2>Product C</h2>
-      <p>Price: $30</p>
-    </li>
+    <%for(const prod of prods){%>
+        <li class="product-item">
+        <h2><%=prod.title%></h2>
+        <p><%=prod.price%></p>
+        </li>
+      <%}%>
   </ul>
 </section>
 

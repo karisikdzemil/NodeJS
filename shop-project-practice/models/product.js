@@ -32,4 +32,8 @@ module.exports = class Product {
         });
     })
   }
+
+  static getProducts (cb){
+    return getProductsFromFile(cb);    
+  }
 }

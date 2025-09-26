@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoConnect = require('./util/database').mongoConnect;
 
 const app = express();
 
@@ -14,6 +15,7 @@ const shopRoutes = require('./routes/shop');
 app.use(adminRoutes);
 app.use(shopRoutes);
 
-app.listen(3000, () => {
-  console.log("Sve radi bebiii");
+mongoConnect(() => {
+  app.listen(3000);
 });
+
