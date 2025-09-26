@@ -12,4 +12,9 @@ module.exports = class Product {
     const db = getDb();
     db.collection('products').insertOne(this);
   }
+
+  static findProducts(){
+    const db = getDb();
+    return db.collection('products').find();
+  }
 }

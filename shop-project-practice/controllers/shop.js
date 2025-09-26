@@ -2,24 +2,42 @@ const Product = require("../models/product");
 
 // GET shop products
 exports.getShop = (req, res, next) => {
-  Product.getProducts((prods) => {
-    res.render("shop/products", {
-      title: "Home Page",
-      active: "home",
-      prods: prods,
+  Product.findProducts().toArray()
+    .then((products) => {
+      console.log(products)
+      res.render("shop/products", {
+        title: "Home Page",
+        active: "home",
+        prods: products,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
-  });
 };
 
 // GET products
 exports.getProducts = (req, res, next) => {
-  Product.getProducts((prods) => {
-    res.render("shop/products", {
-      title: "Products Page",
-      active: "products",
-      prods: prods,
+  Product.findProducts().toArray()
+    .then((products) => {
+      console.log(products)
+      res.render("shop/products", {
+        title: "Products Page",
+        active: "products",
+        prods: products,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
-  });
+
+  // Product.getProducts((prods) => {
+  //   res.render("shop/products", {
+  //     title: "Products Page",
+  //     active: "products",
+  //     prods: prods,
+  //   });
+  // });
 };
 
 // GET cart
