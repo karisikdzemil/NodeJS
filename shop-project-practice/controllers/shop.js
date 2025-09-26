@@ -5,7 +5,7 @@ exports.getShop = (req, res, next) => {
   Product.findProducts().toArray()
     .then((products) => {
       console.log(products)
-      res.render("shop/products", {
+      res.render("shop/shop", {
         title: "Home Page",
         active: "home",
         prods: products,
@@ -29,15 +29,7 @@ exports.getProducts = (req, res, next) => {
     })
     .catch((err) => {
       console.log(err);
-    });
-
-  // Product.getProducts((prods) => {
-  //   res.render("shop/products", {
-  //     title: "Products Page",
-  //     active: "products",
-  //     prods: prods,
-  //   });
-  // });
+    }); 
 };
 
 // GET cart

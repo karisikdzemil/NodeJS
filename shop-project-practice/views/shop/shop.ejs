@@ -5,14 +5,14 @@
 
 <section class="product-list">
   <ul>
-    <li class="product-item">
-      <h2>Static Product 1</h2>
-      <p>Price: $20</p>
-    </li>
-    <li class="product-item">
-      <h2>Static Product 2</h2>
-      <p>Price: $50</p>
-    </li>
+    <%for(const prod of prods){%>
+        <li class="product-item">
+        <h2><%=prod.title%></h2>
+        <p><%=prod.price%></p>
+          <input type="hidden" value="<%=prod._id%>">
+          <a href="/products/:<=%prod._id=>">View More Details</a>
+        </li>
+      <%}%>
   </ul>
 </section>
 
