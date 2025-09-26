@@ -1,21 +1,5 @@
-const path = require("path");
-const fs = require("fs");
-
-const p = path.join(
-  path.dirname(process.mainModule.filename),
-  "data",
-  "products.json"
-);
-
-const getProductsFromFile = (cb) => {
-    fs.readFile(p, (err, fileContent) => {
-        if(err){
-            cb([])
-        }else{
-            cb(JSON.parse(fileContent));
-        }
-    });
-}
+const mongoConnect = require('../util/database');
+const getDb = require("../util/database").getDb;
 
 module.exports = class Product {
   constructor(title, price, description) {
@@ -24,16 +8,8 @@ module.exports = class Product {
     this.description = description;
   }
 
-  createProduct(id) {
-    getProductsFromFile((products) => {
-        products.push(this);
-        fs.writeFile(p, JSON.stringify(products), (err) => {
-            console.log(err);
-        });
-    })
-  }
-
-  static getProducts (cb){
-    return getProductsFromFile(cb);    
+  saveProduct(){
+    const db = getDb();
+    db.collection('products').insertOne(this);
   }
 }
