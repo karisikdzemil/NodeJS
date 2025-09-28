@@ -21,7 +21,7 @@ const productsScema = new Schema({
   }
 });
 
-
+module.exports = mongoose.model('Product', productsScema);
 
 
 // const mongodb = require("mongodb");

@@ -4,7 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const errorController = require("./controllers/error");
-const User = require("./models/user");
+// const User = require("./models/user");
 const mongoose = require("mongoose");
 
 const app = express();
@@ -18,14 +18,14 @@ const shopRoutes = require("./routes/shop");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use((req, res, next) => {
-  User.findById("68c07f78c4e69f455f24c275")
-    .then((user) => {
-      req.user = new User(user.name, user.email, user.cart, user._id);
-      next();
-    })
-    .catch((err) => console.log(err));
-});
+// app.use((req, res, next) => {
+//   User.findById("68c07f78c4e69f455f24c275")
+//     .then((user) => {
+//       req.user = new User(user.name, user.email, user.cart, user._id);
+//       next();
+//     })
+//     .catch((err) => console.log(err));
+// });
 
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
