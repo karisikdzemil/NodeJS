@@ -7,7 +7,7 @@ const orderSchema = new Schema({
         product: {type: Object, required: true},
         quantity: {type: Number, required: true}
     }],
-    users: {
+    user: {
         name: {
             type: String, 
             rquired: true
