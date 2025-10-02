@@ -40,7 +40,7 @@ exports.getSingleProduct = (req, res, next) => {
   const prodId = req.params.prodId;
   db.collection('products').findOne({_id: new ObjectId(prodId)}).then(product => {
     console.log(prodId)
-    res.render('shop/product', {title: "Product",active: 'home', prod: product});
+    res.render('shop/product', {title: "Product", active: null, prod: product});
   }).catch(err => console.log(err));
 }
 

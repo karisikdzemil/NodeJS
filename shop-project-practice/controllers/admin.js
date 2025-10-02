@@ -2,7 +2,9 @@ const Product = require('../models/product');
 
 // GET admin products
 exports.getAdminProducts = (req, res, next) => {
-  res.render("admin/adminProducts", { title: "Admin Products", active: 'adminProducts' });
+  Product.findProducts().then(products => {
+    res.render("admin/adminProducts", { title: "Admin Products", active: 'adminProducts', prods: products });
+  }).catch(err => console.log(err))
 }
 
 exports.getAddProduct = (req, res, next) => {

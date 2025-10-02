@@ -15,6 +15,6 @@ module.exports = class Product {
 
   static findProducts(){
     const db = getDb();
-    return db.collection('products').find();
+    return db.collection('products').find().toArray();
   }
 }
