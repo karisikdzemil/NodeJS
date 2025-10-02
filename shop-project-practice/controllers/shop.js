@@ -1,4 +1,6 @@
 const Product = require("../models/product");
+const getDb = require('../util/database').getDb;
+const {ObjectId} = require('mongodb');
 
 // GET shop products
 exports.getShop = (req, res, next) => {
@@ -31,6 +33,16 @@ exports.getProducts = (req, res, next) => {
       console.log(err);
     }); 
 };
+
+// GET product
+exports.getSingleProduct = (req, res, next) => {
+  const db = getDb();
+  const prodId = req.params.prodId;
+  db.collection('products').findOne({_id: new ObjectId(prodId)}).then(product => {
+    console.log(prodId)
+    res.render('shop/product', {title: "Product",active: 'home', prod: product});
+  }).catch(err => console.log(err));
+}
 
 // GET cart
 exports.getCart = (req, res, next) => {
