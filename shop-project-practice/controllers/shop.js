@@ -4,7 +4,7 @@ const {ObjectId} = require('mongodb');
 
 // GET shop products
 exports.getShop = (req, res, next) => {
-  Product.findProducts().toArray()
+  Product.findProducts()
     .then((products) => {
       console.log(products)
       res.render("shop/shop", {
@@ -20,7 +20,7 @@ exports.getShop = (req, res, next) => {
 
 // GET products
 exports.getProducts = (req, res, next) => {
-  Product.findProducts().toArray()
+  Product.findProducts()
     .then((products) => {
       console.log(products)
       res.render("shop/products", {
@@ -43,6 +43,8 @@ exports.getSingleProduct = (req, res, next) => {
     res.render('shop/product', {title: "Product", active: null, prod: product});
   }).catch(err => console.log(err));
 }
+
+
 
 // GET cart
 exports.getCart = (req, res, next) => {
