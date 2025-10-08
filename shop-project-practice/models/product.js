@@ -21,9 +21,8 @@ module.exports = class Product {
 
   static deleteProduct(productId){
       const db = getDb();
-      db.collection('products').findOne(new ObjectId(productId)).then(product => {
-        console.log(product);
+      db.collection('products').deleteOne({_id: new ObjectId(productId)}).then(result => {
+        console.log('product deleted')
       }).catch(err => console.log(err));
-
   }
 }

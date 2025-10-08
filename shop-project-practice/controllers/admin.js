@@ -21,3 +21,8 @@ exports.postProduct = (req, res, next) => {
   res.redirect('/');
 }
 
+exports.postDeleteProduct = (req, res, next) => {
+  Product.deleteProduct(req.body.prodId);
+  res.redirect('/')
+}
+

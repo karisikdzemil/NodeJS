@@ -9,8 +9,15 @@
         <li class="product-item">
         <h2><%=prod.title%></h2>
         <p><%=prod.price%></p>
-         <a href="#" class="btn btn-edit">Edit</a>
-        <a href="#" class="btn btn-delete">Delete</a>
+          <form action="/add-product" method="POST">
+            <input type="hidden" name="prodId" value="<%=prod._id%>">
+            <button class="btn btn-edit" name="prodId" type="submit">Edit</button>
+          </form>
+
+          <form action="/admin-products" method="POST">
+          <input type="hidden" name="prodId" value="<%=prod._id%>">
+          <button class="btn btn-delete" type="submit">Delete</button>
+          </form>
         </li> 
       <%}%>
   </ul>
