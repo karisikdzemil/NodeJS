@@ -9,7 +9,10 @@
         <h2><%=prod.title%></h2>
         <p><%=prod.price%></p>
           <a href="/products/<%=prod._id%>">View More Details</a>
-        <button>Add To Cart</button>
+          <form action="/cart" method="POST">
+            <input type="hidden" name="productId" value="<%=prod._id%>">
+            <button type="submit">Add To Cart</button>
+          </form>
         </li> 
       <%}%>
   </ul>

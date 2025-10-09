@@ -6,7 +6,6 @@ const {ObjectId} = require('mongodb');
 exports.getShop = (req, res, next) => {
   Product.findProducts()
     .then((products) => {
-      console.log(products)
       res.render("shop/shop", {
         title: "Home Page",
         active: "home",
@@ -22,7 +21,6 @@ exports.getShop = (req, res, next) => {
 exports.getProducts = (req, res, next) => {
   Product.findProducts()
     .then((products) => {
-      console.log(products)
       res.render("shop/products", {
         title: "Products Page",
         active: "products",
@@ -44,12 +42,18 @@ exports.getSingleProduct = (req, res, next) => {
   }).catch(err => console.log(err));
 }
 
-
-
 // GET cart
 exports.getCart = (req, res, next) => {
   res.render("shop/cart", { title: "Cart", active: "cart" });
 };
+
+exports.postToCart = (req, res, next) => {
+  req.user.addToCart(req.body.productId).then(result => {
+    console.log('Added to cart');
+    return res.redirect('cart');
+  }).catch(err => console.log(err))
+  res.redirect('/')
+}
 
 // GET orders
 exports.getOrders = (req, res, next) => {

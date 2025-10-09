@@ -13,14 +13,15 @@ app.use(express.urlencoded({extended: true}));
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
-app.use(adminRoutes);
-app.use(shopRoutes);
-
 app.use((req, res, next) => {
-  const testUser = new User('Djemsi', 'djemsi@gmail.com');
   req.user = testUser;
   next();
 });
+
+app.use(adminRoutes);
+app.use(shopRoutes);
+
+const testUser = new User('djemsi@gmail.com', 'Djemsi');
 
 mongoConnect(() => {
   app.listen(3000);
