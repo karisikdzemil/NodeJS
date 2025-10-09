@@ -5,5 +5,27 @@ module.exports = class User {
         this.cart = {items: []};
     }
 
+    save(){
+        
+    }
+
+    static findById(){
+
+    }
+
+    static addToCart(product){
+
+    }
     
+    static removeFromCart(productId){
+
+    }
+
+    static getCart(){
+
+    }
+
+    static clearCart(){
+
+    }
 }

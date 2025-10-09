@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoConnect = require('./util/database').mongoConnect;
+const User = require('./models/user');
 
 const app = express();
 
@@ -14,6 +15,12 @@ const shopRoutes = require('./routes/shop');
 
 app.use(adminRoutes);
 app.use(shopRoutes);
+
+app.use((req, res, next) => {
+  const testUser = new User('Djemsi', 'djemsi@gmail.com');
+  req.user = testUser;
+  next();
+});
 
 mongoConnect(() => {
   app.listen(3000);
