@@ -12,14 +12,13 @@ const errorController = require('./controllers/error');
 const User = require('./models/user');
 
 const MONGODB_URI =
-  "mongodb+srv://karisikdzemil:Dzemil123@cluster0.ldrhrp1.mongodb.net/shop?retryWrites=true&w=majority&appName=Cluster0";
+  'mongodb+srv://maximilian:9u4biljMQc4jjqbe@cluster0-ntrwp.mongodb.net/shop';
 
 const app = express();
 const store = new MongoDBStore({
   uri: MONGODB_URI,
   collection: 'sessions'
 });
-
 const csrfProtection = csrf();
 
 app.set('view engine', 'ejs');
@@ -58,7 +57,7 @@ app.use((req, res, next) => {
   res.locals.isAuthenticated = req.session.isLoggedIn;
   res.locals.csrfToken = req.csrfToken();
   next();
-})
+});
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
