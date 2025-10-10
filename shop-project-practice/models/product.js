@@ -11,7 +11,7 @@ module.exports = class Product {
 
   saveProduct(){
     const db = getDb();
-    db.collection('products').insertOne(this);
+    return db.collection('products').insertOne(this);
   }
 
   static findProducts(){

@@ -8,7 +8,10 @@ module.exports = class User {
     this.cart = { items: [] };
   }
 
-  save() {}
+  save() {
+    const db = getDb();
+    db.collection('users').insertOne(this);
+  }
 
   static findById() {}
 

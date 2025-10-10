@@ -52,7 +52,7 @@ exports.postToCart = (req, res, next) => {
     console.log('Added to cart');
     return res.redirect('cart');
   }).catch(err => console.log(err))
-  res.redirect('/')
+  res.redirect('/');
 }
 
 // GET orders
