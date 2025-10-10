@@ -19,11 +19,12 @@ app.use((req, res, next) => {
   const db = getDb();
   db.collection('users').findOne({email: testUser.email}).then(user => {
       if(user){
-        req.user = testUser;
+        req.user = user;
         return next();
       }
-      testUser.save();
-      req.user = testUser;
+      testUser.save().then(user => {
+        req.user = user;
+      });
       return next();
   })
 });

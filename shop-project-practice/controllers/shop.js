@@ -1,6 +1,7 @@
 const Product = require("../models/product");
 const getDb = require('../util/database').getDb;
 const {ObjectId} = require('mongodb');
+const User = require('../models/user')
 
 // GET shop products
 exports.getShop = (req, res, next) => {
@@ -48,7 +49,7 @@ exports.getCart = (req, res, next) => {
 };
 
 exports.postToCart = (req, res, next) => {
-  req.user.addToCart(req.body.productId).then(result => {
+  User.addToCart(req.body.productId, req.user._id).then(result => {
     console.log('Added to cart');
     return res.redirect('cart');
   }).catch(err => console.log(err))

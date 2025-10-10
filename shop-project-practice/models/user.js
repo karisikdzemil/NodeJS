@@ -10,17 +10,19 @@ module.exports = class User {
 
   save() {
     const db = getDb();
-    db.collection('users').insertOne(this);
+    return db.collection('users').insertOne(this);
   }
 
   static findById() {}
 
-   addToCart(productId) {
+   static addToCart(productId, userId) {
     const db = getDb();
-    db.collection("products")
-      .findOne({ _id: new ObjectId(productId) })
-      .then((product) => {
-        this.cart.items.push(product);
+    console.log(req.user._id)
+    db.collection("users")
+      .findOne({ _id: userId })
+      .then((user) => {
+        this.cart.items.push(productId);
+        user.save();
       })
       .catch((err) => console.log(err));
   }
