@@ -15,17 +15,22 @@ module.exports = class User {
 
   static findById() {}
 
-   static addToCart(productId, userId) {
-    const db = getDb();
-    console.log(req.user._id)
-    db.collection("users")
-      .findOne({ _id: userId })
-      .then((user) => {
-        this.cart.items.push(productId);
-        user.save();
-      })
-      .catch((err) => console.log(err));
-  }
+static addToCart(productId, userId) {
+  const db = getDb();
+  return db.collection("users")
+    .findOne({ _id: new ObjectId(userId) })
+    .then((user) => {
+      if (!user.cart) user.cart = { items: [] };
+      user.cart.items.push({ productId: new ObjectId(productId) });
+
+      return db.collection("users").updateOne(
+        { _id: new ObjectId(userId) },
+        { $set: { cart: user.cart } }
+      );
+    })
+    .catch((err) => console.log(err));
+}
+
 
   static removeFromCart(productId) {}
 

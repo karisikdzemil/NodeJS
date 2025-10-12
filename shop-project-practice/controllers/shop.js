@@ -48,12 +48,12 @@ exports.getCart = (req, res, next) => {
   res.render("shop/cart", { title: "Cart", active: "cart" });
 };
 
+// POST cart
 exports.postToCart = (req, res, next) => {
   User.addToCart(req.body.productId, req.user._id).then(result => {
     console.log('Added to cart');
     return res.redirect('cart');
   }).catch(err => console.log(err))
-  res.redirect('/');
 }
 
 // GET orders
