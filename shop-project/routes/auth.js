@@ -30,19 +30,21 @@ router.post(
                 return Promise.reject('E-Mail exists already, please pick a different one.');
               }
 
-      })}),
+      })})
+      .normalizeEmail(),
     body(
       "password",
       "Please enter a password with only numbers and text and at least 5 characters."
     )
       .isLength({ min: 5 })
-      .isAlpfanumeric(),
+      .isAlpfanumeric()
+      .trim(),
       body('confirmPassword').custom((value, {req}) => {
         if(value === req.body.password){
             throw new Error('Passwords have to match!')
         }
         return true;
-      })
+      }).trim()
   ],
   authController.postSignup
 );
