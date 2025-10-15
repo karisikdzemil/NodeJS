@@ -15,7 +15,6 @@ exports.postAddProduct = (req, res, next) => {
   const price = req.body.price;
   const description = req.body.description;
   const product = new Product({
-    _id: new mongoose.Types.ObjectId('68d92391e709df02e5c682fd'),
     title: title,
     price: price,
     description: description,
@@ -55,7 +54,12 @@ exports.getEditProduct = (req, res, next) => {
         product: product
       });
     })
-    .catch(err => console.log(err));
+     .catch(err => {
+    // res.redirect('/500')
+      const error = new Error(err);
+      error.statusCode = 500;
+      return next(error);
+    });
 };
 
 exports.postEditProduct = (req, res, next) => {
@@ -79,7 +83,12 @@ exports.postEditProduct = (req, res, next) => {
         res.redirect('/admin/products');
       });
     })
-    .catch(err => console.log(err));
+     .catch(err => {
+    // res.redirect('/500')
+      const error = new Error(err);
+      error.statusCode = 500;
+      return next(error);
+    });
 };
 
 exports.getProducts = (req, res, next) => {
@@ -94,7 +103,12 @@ exports.getProducts = (req, res, next) => {
         path: '/admin/products'
       });
     })
-    .catch(err => console.log(err));
+     .catch(err => {
+    // res.redirect('/500')
+      const error = new Error(err);
+      error.statusCode = 500;
+      return next(error);
+    });
 };
 
 exports.postDeleteProduct = (req, res, next) => {
@@ -104,5 +118,10 @@ exports.postDeleteProduct = (req, res, next) => {
       console.log('DESTROYED PRODUCT');
       res.redirect('/admin/products');
     })
-    .catch(err => console.log(err));
+     .catch(err => {
+    // res.redirect('/500')
+      const error = new Error(err);
+      error.statusCode = 500;
+      return next(error);
+    });
 };
