@@ -53,8 +53,11 @@ app.use((req, res, next) => {
       req.user = user;
       next();
     })
-    .catch(err => {
-      throw new Error(err);
+     .catch(err => {
+    // res.redirect('/500')
+      const error = new Error(err);
+      error.statusCode = 500;
+      return next(error);
     });
 });
 
