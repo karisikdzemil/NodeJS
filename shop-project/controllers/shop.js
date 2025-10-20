@@ -154,7 +154,9 @@ exports.getCheckout = (req, res, next) => {
             currency: 'usd',
             quantity: p.quantity
           }
-        })
+        }),
+        success_url: req.protocol + '://' + req.get('host') + '/checkout/success',
+        cancel_url: req.protocol + '://' + req.get('host') + '/checkout/cancel'
       })
     })
     .then(session => { 
