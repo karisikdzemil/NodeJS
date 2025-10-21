@@ -1,7 +1,7 @@
 const Product = require("../models/product");
-const getDb = require('../util/database').getDb;
-const {ObjectId} = require('mongodb');
-const User = require('../models/user')
+const getDb = require("../util/database").getDb;
+const { ObjectId } = require("mongodb");
+const User = require("../models/user");
 
 // GET shop products
 exports.getShop = (req, res, next) => {
@@ -30,31 +30,48 @@ exports.getProducts = (req, res, next) => {
     })
     .catch((err) => {
       console.log(err);
-    }); 
+    });
 };
 
 // GET product
 exports.getSingleProduct = (req, res, next) => {
   const db = getDb();
   const prodId = req.params.prodId;
-  db.collection('products').findOne({_id: new ObjectId(prodId)}).then(product => {
-    console.log(prodId)
-    res.render('shop/product', {title: "Product", active: null, prod: product});
-  }).catch(err => console.log(err));
-}
+  db.collection("products")
+    .findOne({ _id: new ObjectId(prodId) })
+    .then((product) => {
+      console.log(prodId);
+      res.render("shop/product", {
+        title: "Product",
+        active: null,
+        prod: product,
+      });
+    })
+    .catch((err) => console.log(err));
+};
 
 // GET cart
 exports.getCart = (req, res, next) => {
-  res.render("shop/cart", { title: "Cart", active: "cart" });
+  User.getCart(req.user._id)
+    .then((items) => {
+      res.render("shop/cart", {
+        title: "Cart",
+        active: "cart",
+        cart: items,
+      });
+    })
+    .catch((err) => console.log(err));
 };
 
 // POST cart
 exports.postToCart = (req, res, next) => {
-  User.addToCart(req.body.productId, req.user._id).then(result => {
-    console.log('Added to cart');
-    return res.redirect('cart');
-  }).catch(err => console.log(err))
-}
+  User.addToCart(req.body.productId, req.user._id)
+    .then((result) => {
+      console.log("Added to cart");
+      return res.redirect("/cart");
+    })
+    .catch((err) => console.log(err));
+};
 
 // GET orders
 exports.getOrders = (req, res, next) => {

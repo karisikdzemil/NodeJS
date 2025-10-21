@@ -34,7 +34,21 @@ static addToCart(productId, userId) {
 
   static removeFromCart(productId) {}
 
-  static getCart() {}
+static getCart(userId) {
+  const db = getDb();
+  return db.collection('users').findOne({ _id: userId }).then(user => {
+    if (!user || !user.cart || !user.cart.items) return [];
+
+    const itemIds = user.cart.items;
+    const productPromises = itemIds.map(itemId => {
+      return db.collection('products').findOne({ _id: new ObjectId(itemId) });
+    });
+    console.log(itemIds)
+
+    return Promise.all(productPromises);
+  });
+}
+
 
   static clearCart() {}
 };

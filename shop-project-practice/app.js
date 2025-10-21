@@ -15,19 +15,21 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
 const testUser = new User('djemsi@gmail.com', 'Djemsi');
-app.use((req, res, next) => {
-  const db = getDb();
-  db.collection('users').findOne({email: testUser.email}).then(user => {
-      if(user){
-        req.user = user;
-        return next();
-      }
-      testUser.save().then(user => {
-        req.user = user;
-      });
-      return next();
-  })
+app.use(async (req, res, next) => {
+  try {
+    const db = getDb();
+    let user = await db.collection('users').findOne({ email: testUser.email });
+    if (!user) {
+      await testUser.save();
+      user = await db.collection('users').findOne({ email: testUser.email });
+    }
+    req.user = user;
+    next();
+  } catch (err) {
+    console.log(err);
+  }
 });
+
 
 app.use(adminRoutes);
 app.use(shopRoutes);

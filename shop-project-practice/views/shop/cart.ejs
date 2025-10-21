@@ -1,4 +1,10 @@
-<%- include('../includes/header') -%>
+<%- include('../includes/header') -%>   
+<%console.log(cart)%>
+    <%if(cart.length === 0){%>
     <h1>The Cart is empty!</h1>
     <p>You need to add the product to the cart first!</p>
+    <%}else{%>
+        <%for(item of cart){%>  
+            <h1><%=item.title%></h1>
+        <%}}%>
 <%- include('../includes/footer') -%>
