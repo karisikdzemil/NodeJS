@@ -1,7 +1,17 @@
     <%-include('../includes/header') -%>
 
-    <main class="container">
-        <h1 class="h1-style">Products</h1>
+   <main class="container">
+        <h1 class="h1-style">Welcome to my mongoose shop app!</h1>
+        <ul class="product_list">
+            <%for(prod of prods){%>
+                <li class="product">
+                    <h3><%=prod.title%></h3>
+                    <h4><%=prod.price%>$</h4>
+                    <p><%=prod.description%></p>
+                    <button>Add To Cart</button>
+                </li>
+            <%}%>
+        </ul>
     </main>
 
     <%-include('../includes/footer') -%>

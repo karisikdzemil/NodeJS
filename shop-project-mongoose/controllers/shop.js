@@ -1,19 +1,21 @@
-const Product = require('../models/Product');
+const Product = require("../models/Product");
 
 exports.getShop = (req, res, next) => {
-    Product.find().then(products => {
-        res.render('shop/shop', {title: 'Shop', active: 'home', prods: products });
-    })
-}
+  Product.find().then((products) => {
+    res.render("shop/shop", { title: "Shop", active: "home", prods: products });
+  });
+};
 
 exports.getProducts = (req, res, next) => {
-    res.render('shop/products', {active: 'products', title: 'Products'});
-}
+  Product.find().then((products) => {
+    res.render("shop/products", { title: "Products", active: "products", prods: products });
+  });
+};
 
 exports.getCart = (req, res, next) => {
-    res.render('shop/cart', {active: 'cart', title: 'Cart'});
-}
+  res.render("shop/cart", { active: "cart", title: "Cart" });
+};
 
-exports.getOrders =  (req, res, next) => {
-    res.render('shop/order', {active: 'orders', title: 'Order'});
-}
+exports.getOrders = (req, res, next) => {
+  res.render("shop/order", { active: "orders", title: "Order" });
+};
