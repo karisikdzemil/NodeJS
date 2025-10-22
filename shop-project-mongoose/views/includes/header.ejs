@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title || 'MyShop' %></title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <a href="/">MyShop</a>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li>
+            <a href="/" class="<%= active === 'home' ? 'active' : '' %>"
+              >Shop</a
+            >
+          </li>
+          <li>
+            <a
+              href="/products"
+              class="<%= active === 'products' ? 'active' : '' %>"
+              >Products</a
+            >
+          </li>
+          <li>
+            <a href="/cart" class="<%= active === 'cart' ? 'active' : '' %>"
+              >Cart</a
+            >
+          </li>
+          <li>
+            <a href="/orders" class="<%= active === 'orders' ? 'active' : '' %>"
+              >Orders</a
+            >
+          </li>
+          <li>
+            <a
+              href="/add-product"
+              class="<%= active === 'addProduct' ? 'active' : '' %>"
+              >Add Product</a
+            >
+          </li>
+          <li>
+            <a
+              href="/admin-products"
+              class="<%= active === 'adminProducts' ? 'active' : '' %>"
+              >Admin Products</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container"></main>
+  </body>
+</html>
