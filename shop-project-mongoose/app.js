@@ -9,27 +9,27 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/',(req, res, next) => {
-    res.render('shop/shop', {active: 'home', title: 'Shop'});
+    res.render('shop/shop', {title: 'Shop', active: 'home' });
 });
 
 app.get('/products', (req, res, next) => {
-    res.render('products', {active: 'products', title: 'Products'});
+    res.render('shop/products', {active: 'products', title: 'Products'});
 });
 
 app.get('/cart', (req, res, next) => {
-    res.render('cart', {active: 'cart', title: 'Cart'});
+    res.render('shop/cart', {active: 'cart', title: 'Cart'});
 });
 
 app.get('/orders', (req, res, next) => {
-    res.render('order', {active: 'order', title: 'Order'});
+    res.render('shop/order', {active: 'orders', title: 'Order'});
 });
 
 app.get('/add-product', (req, res, next) => {
-    res.render('add-roduct', {active: 'add-product', title: 'Add Product'});
+    res.render('admin/add-product', {active: 'addProduct', title: 'Add Product'});
 });
 
 app.get('/admin-products', (req, res, next) => {
-    res.render('admin-products', {active: 'admin-products', title: 'Admin Products'});
+    res.render('admin/admin-products', {active: 'adminProducts', title: 'Admin Products'});
 });
 
 app.listen(3000);

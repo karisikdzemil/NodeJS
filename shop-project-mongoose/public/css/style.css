@@ -47,11 +47,22 @@ body {
 }
 
 .active{
-    color: chartreuse;
-    text-decoration: underline;
+    color: rgb(220, 123, 38) !important;
+    /* text-decoration: underline !important; */
 }
 
 .centered{
     display: block;
     margin: auto;
+}
+
+.h1-style{
+    font-family: sans-serif;
+    color: #2f3640;
+    text-align: center;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
