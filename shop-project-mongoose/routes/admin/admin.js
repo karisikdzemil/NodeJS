@@ -1,13 +1,10 @@
 const express = require('express');
+const adminController = require('../../controllers/admin');
 
 const router = express.Router();
 
-router.get('/add-product', (req, res, next) => {
-    res.render('admin/add-product', {active: 'addProduct', title: 'Add Product'});
-});
+router.get('/add-product', adminController.getAddProduct);
 
-router.get('/admin-products', (req, res, next) => {
-    res.render('admin/admin-products', {active: 'adminProducts', title: 'Admin Products'});
-});
+router.get('/admin-products', adminController.getAdminProducts);
 
 module.exports = router;
