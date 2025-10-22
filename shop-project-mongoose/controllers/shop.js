@@ -1,7 +1,9 @@
-
+const Product = require('../models/Product');
 
 exports.getShop = (req, res, next) => {
-    res.render('shop/shop', {title: 'Shop', active: 'home' });
+    Product.find().then(products => {
+        res.render('shop/shop', {title: 'Shop', active: 'home', prods: products });
+    })
 }
 
 exports.getProducts = (req, res, next) => {
