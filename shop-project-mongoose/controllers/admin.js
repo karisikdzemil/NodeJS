@@ -58,3 +58,10 @@ exports.getAdminProducts = (req, res, next) => {
     })
     .catch((err) => console.log(err));
 };
+
+exports.postDeleteProduct = (req, res, next) => {
+    const prodId = req.body.productId;
+    Product.findOneAndDelete({_id: prodId}).then(result => {
+        res.redirect('/');
+    }).catch(err => console.log(err));
+}
