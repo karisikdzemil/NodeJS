@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const User = require("./models/User");
 
 const path = require("path");
 const shopRoutes = require("./routes/shop/shop");
@@ -22,6 +23,20 @@ app.use(adminRoutes);
 mongoose
   .connect(MONGODB_URI)
   .then((result) => {
+    User.findOne({ _id: "68fbc898381418c202bbb314" })
+      .then((user) => {
+        if (user) {
+          return;
+        } else {
+          const user = new User({
+            email: "karisidzemil@gmail.com",
+            password: "Dzemil123@",
+            cart: { items: [] },
+          });
+          user.save();
+        }
+      })
+      .catch((err) => console.log(err));
     app.listen(3000);
   })
   .catch((err) => console.log(err));
