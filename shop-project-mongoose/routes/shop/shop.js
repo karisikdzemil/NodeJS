@@ -9,6 +9,8 @@ router.get('/products', shopController.getProducts);
 
 router.get('/cart', shopController.getCart);
 
+router.post('/cart', shopController.postToCart);
+
 router.get('/orders', shopController.getOrders);
 
 

@@ -8,7 +8,10 @@
                     <h3><%=prod.title%></h3>
                     <h4><%=prod.price%>$</h4>
                     <p><%=prod.description%></p>
-                    <button>Add To Cart</button>
+                    <form action="/cart" method="post">
+                        <input type="hidden" value="<%=prod._id%>" name="productId">
+                        <button type="submit">Add To Cart</button>
+                    </form>
                 </li>
             <%}%>
         </ul>

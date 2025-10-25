@@ -16,6 +16,11 @@ exports.getCart = (req, res, next) => {
   res.render("shop/cart", { active: "cart", title: "Cart" });
 };
 
+exports.postToCart = (req, res, next) => {
+    console.log(req.body.name);
+    res.redirect('/cart');
+}
+
 exports.getOrders = (req, res, next) => {
   res.render("shop/order", { active: "orders", title: "Order" });
 };

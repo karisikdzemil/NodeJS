@@ -17,6 +17,12 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
+app.use((req, res, next) => {
+  const user = User.findOne({_id: "68fbc898381418c202bbb314"}).then(user => {
+    req.user = user;
+    next();
+  });
+})
 app.use(shopRoutes);
 app.use(adminRoutes);
 
