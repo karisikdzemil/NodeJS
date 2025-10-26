@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
-  const user = User.findOne({_id: "68fbc898381418c202bbb314"}).then(user => {
+  const user = User.findOne({_id: "68fe2a4f793cd7a313fd3a15"}).then(user => {
     req.user = user;
     next();
   });
@@ -29,7 +29,7 @@ app.use(adminRoutes);
 mongoose
   .connect(MONGODB_URI)
   .then((result) => {
-    User.findOne({ _id: "68fbc898381418c202bbb314" })
+    User.findOne({ _id: "68fe2a4f793cd7a313fd3a15" })
       .then((user) => {
         if (user) {
           return;
