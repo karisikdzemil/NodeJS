@@ -15,8 +15,7 @@ const userSchema = new Schema({
         items: [
             {
                 productId:{
-                    type: mongoose.Schema.Types.ObjectId,
-                    ref: 'product',
+                    type: String,
                     required: true,
                 },
                 quantity: {
@@ -30,7 +29,7 @@ const userSchema = new Schema({
 
 userSchema.methods.addToCart = function (product) {
     const cartProductIndex = this.cart.items.findIndex(cp => {
-        return cp.productId.toString() === product._id.toString;
+        return cp.productId.toString() === product._id.toString();
     });
 
     let newQuantity = 1;

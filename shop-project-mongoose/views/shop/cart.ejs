@@ -2,6 +2,19 @@
 
     <main class="container">
         <h1 class="h1-style">Cart</h1>
+        <ul class="cart">
+            <%for(const item of cartItems){%>
+                    <li>
+                        <h2><%=item.product.title%></h2>
+                        <h2><%=item.product.price%>$</h2>
+                        <h2><%=item.quantity%>x</h2>
+                    </li>
+                <%}%>
+                </ul>
+                <h1 class="h1-style">Total: <%=total%>$</h1>
+                <form action="/order" method="post">
+                    <button class="btn-class centered">Order Now</button>
+                </form>
     </main>
 
     <%-include('../includes/footer') -%>

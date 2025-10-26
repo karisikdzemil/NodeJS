@@ -145,7 +145,7 @@ body {
   margin-bottom: 16px;
 }
 
-.product button {
+.btn-class {
   background: rgb(220, 123, 38);
   color: #fff;
   border: none;
@@ -173,10 +173,27 @@ body {
   gap: 5px;
 }
 
-.product button:hover {
+.btn-class:hover {
   background: rgb(200, 102, 16);
 }
 
 .delete_btn{
   background-color: red !important;
+}
+
+.cart{
+  display: flex;
+}
+
+.cart li{
+  width: 150px;
+  list-style: none;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  max-width: 250px;
+  margin: 20px auto;
 }
