@@ -12,8 +12,9 @@
                 <%}%>
                 </ul>
                 <h1 class="h1-style">Total: <%=total%>$</h1>
-                <form action="/order" method="post">
-                    <button class="btn-class centered">Order Now</button>
+                <form action="/orders" method="post">
+                    <input type="hidden" value="<%=cartItems%>" name="order">
+                    <button type="submit" class="btn-class centered">Order Now</button>
                 </form>
     </main>
 

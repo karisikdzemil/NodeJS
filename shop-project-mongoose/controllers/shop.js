@@ -33,7 +33,7 @@ exports.getCart = async (req, res, next) => {
       title: 'Your Cart',
       cartItems: cartItems,
       total: total
-    })
+    });
   }catch(err){
     console.log(err)
   }
@@ -55,3 +55,8 @@ exports.postToCart = (req, res, next) => {
 exports.getOrders = (req, res, next) => {
   res.render("shop/order", { active: "orders", title: "Order" });
 };
+
+exports.postOrder = (req, res, next) => {
+  
+  res.redirect('/orders')
+}
