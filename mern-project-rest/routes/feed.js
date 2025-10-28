@@ -9,6 +9,6 @@ const router = express.Router();
 router.get('/posts', feedController.getPosts);
 
 // POST /feed/post
-router.post('/post', [ body('title').trim().isLength(5), body('content').trim().isLength(5) ], feedController.createPost);
+router.post('/post', [ body('title').trim().isLength(5), body('content').trim().isLength(5)], feedController.createPost);
 
 module.exports = router;
