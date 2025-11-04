@@ -8,7 +8,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('api/todo/', todoRoutes);
+app.use('/api/todo', todoRoutes);
 
 app.use((error, req, res, next) => {
     const message = error.message;
