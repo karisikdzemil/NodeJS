@@ -1,7 +1,9 @@
+import Header from "./components/header"
+
 function App() {
   return (
     <>
-      <h1>ToDo frontend</h1>
+        <Header />
     </>
   )
 }
