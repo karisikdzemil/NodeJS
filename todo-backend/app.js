@@ -8,7 +8,14 @@ const app = express();
 
 app.use(express.json());
 
-app.use(todoRoutes);
+app.use('api/todo/', todoRoutes);
+
+app.use((error, req, res, next) => {
+    const message = error.message;
+    const status = error.status || 500;
+    const data = error.data;
+    res.status(status).json({message: message, data: data});
+})
 
 mongoose.connect(db_key).then(result => {
     app.listen(8080);
