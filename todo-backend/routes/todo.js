@@ -1,14 +1,31 @@
-const express = require('express');
-const todoController = require('../controllers/todo');
+const express = require("express");
+const { body } = require("express-validator");
+const todoController = require("../controllers/todo");
 
 const router = express.Router();
 
-router.get('/api/todo/all-todos', todoController.getTodos);
+router.get("/all-todos", todoController.getTodos);
 
-router.post('/api/todo/create-todo', todoController.postTodo);
+router.post(
+  "/create-todo",
+  [
+    body("title").trim().isLength({ min: 5 }),
+    body("description").trim().isLength({ min: 10 }),
+  ],
+  todoController.postTodo
+);
 
-router.get('/api/todo/edit-todo/:todoId', todoController.getEditTodo);
+router.get("/edit-todo/:todoId", todoController.getEditTodo);
 
-router.put('/api/todo/edit-todo/:todoId', todoController.editTodo);
+router.put(
+  "/edit-todo/:todoId",
+  [
+    body("title").trim().isLength({ min: 5 }),
+    body("description").trim().isLength({ min: 10 }),
+  ],
+  todoController.editTodo
+);
 
-router.delete('/api/todo/delete-todo/:todoId', todoController.deleteTodo);
+router.delete("/delete-todo/:todoId", todoController.deleteTodo);
+
+module.exports = router;
