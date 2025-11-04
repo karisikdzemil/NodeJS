@@ -3,10 +3,12 @@ const todoController = require('../controllers/todo');
 
 const router = express.Router();
 
-router.get('/all-todos', todoController.getTodos);
+router.get('/api/todo/all-todos', todoController.getTodos);
 
-router.post('/create-todo', todoController.postTodo);
+router.post('/api/todo/create-todo', todoController.postTodo);
 
-router.put('/edit-todo/:todoId', todoController.editTodo);
+router.get('/api/todo/edit-todo/:todoId', todoController.getEditTodo);
 
-router.delete('/delete-todo/:todoId', todoController.deleteTodo);
+router.put('/api/todo/edit-todo/:todoId', todoController.editTodo);
+
+router.delete('/api/todo/delete-todo/:todoId', todoController.deleteTodo);

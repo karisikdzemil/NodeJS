@@ -12,6 +12,7 @@ exports.getTodos = (req, res, next) => {
 }
 
 exports.postTodo = (req, res, next) => {
+  // validate inputs
   const title = req.body.title;
   const description = req.body.description;
   // const image = req.body.image;
@@ -29,6 +30,51 @@ exports.postTodo = (req, res, next) => {
       next(err);
     });
 };
+
+exports.getEditTodo = (req, res, next) => {
+  const todoId = req.params.todoId;
+  
+  ToDo.findById(todoId).then(todo => {
+    if(!todo){
+      const error = new Error('ToDo not found!');
+      error.statusCode = 404;
+      throw error;
+    }
+    res.status(200).json({message: 'ToDo found!', todo: todo});
+  }).catch(err => {
+      if(!err.statusCode){
+        err.statusCode = 500;
+      }
+      next(err);
+  })
+}
+
+exports.editTodo = (req, res, next) => {
+  const todoId = req.params.todoId;
+  // validate edit inputs
+
+  const title = req.body.title;
+  const description = req.body.description;
+  ToDo.findById(todoId).then(todo => {
+     if(!todo){
+      const error = new Error('ToDo not found!');
+      error.statusCode = 404;
+      throw error;
+    }
+    todo.title = title;
+    todo.description = description;
+    return todo.save();
+  })
+  .then(result => {
+    res.status(200).json({message: 'ToDo edited!', todo: result});
+  })
+  .catch(err => {
+      if(!err.statusCode){
+        err.statusCode = 500;
+      }
+      next(err);
+  })
+}
 
 exports.deleteTodo = (req, res, next) => {
   const todoId = req.params.todoId;
