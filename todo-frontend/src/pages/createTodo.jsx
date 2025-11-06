@@ -1,14 +1,16 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function CreateTodo() {
+    const [loading, setLoading] = useState(false);
   const titleRef = useRef();
   const descriptionRef = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const title = titleRef.current.value;
+    let title = titleRef.current.value;
     const description = descriptionRef.current.value;
     try {
+        setLoading(true);
       const response = await fetch("http://localhost:8080/api/todo/create-todo", {
         method: "POST",
         headers: {
@@ -18,6 +20,10 @@ export default function CreateTodo() {
       });
 
       const data = await response.json();
+      titleRef.current.value = '';
+      descriptionRef.current.value = '';
+      alert(data.message)
+      setLoading(false);
       console.log(data);
     } catch (err) {
       console.log(err);
@@ -61,7 +67,7 @@ export default function CreateTodo() {
           type="submit"
           className="text-white px-8 py-4 rounded-md font-bold cursor-pointer bg-blue-800"
         >
-          Add ToDo
+          {loading ? 'Creating...' : 'Add ToDo'}
         </button>
       </form>
     </section>
