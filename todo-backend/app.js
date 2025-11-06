@@ -1,6 +1,7 @@
 const express = require("express");
 const todoRoutes = require("./routes/todo");
 const mongoose = require("mongoose");
+const cors = require('cors');
 
 const db_key =
   "mongodb+srv://karisikdzemil:Dzemil123@cluster0.ldrhrp1.mongodb.net/todo-rest-project?retryWrites=true&w=majority&appName=Cluster0";
@@ -8,6 +9,7 @@ const db_key =
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/api/todo", todoRoutes);
 
