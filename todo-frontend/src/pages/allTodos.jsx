@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Todo from "../components/todo";
 
 export default function AllTodos() {
   const [allTodos, setAllTodos] = useState([]);
@@ -20,14 +21,11 @@ export default function AllTodos() {
   return (
     <section className="p-25 flex flex-col items-center justify-center">
       <h1 className="text-4xl font-bold">All ToDo's</h1>
-      <ul>
+      <ul className="mt-6 flex flex-col gap-5">
         {allTodos && allTodos.map((todo) => (
-          <li key={todo._id}>
-            <p>{todo.title}</p>
-            <p>{todo.description}</p>
-          </li>
+          <Todo key={todo._id} title={todo.title} description={todo.description}/>
         ))}
       </ul>
     </section>
-  );
+  );  
 }
